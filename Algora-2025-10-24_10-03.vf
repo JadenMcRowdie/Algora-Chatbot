@@ -1,0 +1,4113 @@
+{
+  "version": {
+    "_version": 13.03,
+    "autoSaveFromRestore": false,
+    "canvasTemplates": [],
+    "components": [],
+    "creatorID": 1762161,
+    "manualSave": false,
+    "model": {},
+    "name": "Initial Version",
+    "platformData": {
+      "slots": [],
+      "intents": [
+        {
+          "key": "None",
+          "name": "None",
+          "slots": [],
+          "inputs": [],
+          "noteID": null
+        }
+      ],
+      "settings": {
+        "restart": true,
+        "repeat": 100,
+        "locales": [
+          "en-US"
+        ],
+        "globalNoMatch": {
+          "type": "static",
+          "prompt": {
+            "content": [
+              {
+                "children": [
+                  {
+                    "text": "Sorry, I didn’t get that. Please try again."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "messageDelay": {
+          "durationMilliseconds": 500
+        },
+        "defaultVoice": "elevenlabs:eleven_turbo_v2_5:ZF6FPAbjXT4488VcRRnw",
+        "deepgramASR": {
+          "silenceWaitMS": 10,
+          "punctuationWaitMS": 200,
+          "partialWaitMS": 1000,
+          "interruptionWaitWords": 1,
+          "audioCue": null
+        }
+      },
+      "publishing": {
+        "avatar": "https://cdn.voiceflow.com/assets/logo.png",
+        "color": "#397DFF",
+        "description": "Hi, how can I help you today?",
+        "feedback": false,
+        "image": "https://cdn.voiceflow.com/assets/logo.png",
+        "persistence": "localStorage",
+        "position": "right",
+        "spacing": {
+          "side": 24,
+          "bottom": 24
+        },
+        "title": "Your AI agent",
+        "watermark": true,
+        "audioInterface": true
+      },
+      "platform": "webchat"
+    },
+    "programResources": {
+      "agents": {
+        "68aea8e4f3c7240008229a52": {
+          "name": "Clarify user intent",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a63",
+              "name": "User clarifies intent",
+              "variables": [],
+              "description": "User provides a clear answer about their intent."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a64",
+              "name": "User abandons or still unclear",
+              "variables": [],
+              "description": "User does not clarify or isn’t sure after several attempts."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Politely ask the user to specify if they want to learn terminology, see real-world applications, discover AI ethics basics, or get learning resources. Help them pick one, then return to routing.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a53": {
+          "name": "Unable to assist or clarify",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a65",
+              "name": "End of flow",
+              "variables": [],
+              "description": "Flow ends after apology and suggestion to retry later."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Let the user know you could not understand their request or assist further at this time. Encourage them to try again later. ",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a54": {
+          "name": "Explain AI core terminology",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a66",
+              "name": "User has follow-up question about terminology",
+              "variables": [],
+              "description": "User asks a deeper or new question about terminology or a related concept."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a67",
+              "name": "User wants to cross-link to related AI topic",
+              "variables": [],
+              "description": "User asks to branch to another AI topic (applications, ethics, etc)."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a68",
+              "name": "User asks for further learning",
+              "variables": [],
+              "description": "User requests info on course modules or more resources."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a69",
+              "name": "User is satisfied and conversation ends",
+              "variables": [],
+              "description": "User signals they are done or thanks the bot."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Answer the user with detailed, jargon-free explanations of core AI concepts such as: Machine Learning, NLP, Large Language Models, Neural Networks, Computer Vision, and explain distinctions between AI, ML, and Deep Learning. Present relevant diagrams or simple visualizations as available (e.g., a chart contrasting AI, ML, Deep Learning). Provide citations to specific bootcamp course materials for further reading. Encourage follow-up questions or exploration of related concepts.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a55": {
+          "name": "Handle follow-up on terminology",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a6a",
+              "name": "More follow-up (less than 3 reached)",
+              "variables": [],
+              "description": "User has not yet reached the follow-up limit, wants more explanation."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a6b",
+              "name": "Three follow-ups about terminology completed",
+              "variables": [],
+              "description": "Three follow-up questions on core terminology reached."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "The user asked a follow-up question related to AI fundamentals or core terminology. Determine which concept to explain further, ensure to support up to 3 follow-ups per user session on this topic. Provide expanded answers, link to diagrams, and cite bootcamp resources. If follow-up limit reached, gently encourage new topic or offer further learning.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a56": {
+          "name": "Suggest new topics or wrap-up",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a6c",
+              "name": "User wants to explore new topic",
+              "variables": [],
+              "description": "User wishes to switch to another major AI topic (application, ethics, etc)."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a6d",
+              "name": "User asks for further learning recommendations",
+              "variables": [],
+              "description": "User decides to get course modules or resource recommendations."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a6e",
+              "name": "User completes session",
+              "variables": [],
+              "description": "User is satisfied and wants to end conversation."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Inform user the session follow-up limit for this topic has been reached. Offer to explore other AI domains (applications, ethics) or suggest further learning resources. Route as user decides.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a57": {
+          "name": "Explore real-world AI applications",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a6f",
+              "name": "User picks a specific industry",
+              "variables": [],
+              "description": "User picks or names an industry/domain to explore."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a70",
+              "name": "User wants a general overview",
+              "variables": [],
+              "description": "User wants a broad summary of AI applications in various sectors."
+            },
+            {
+              "id": "68b0257419eba5513734d997",
+              "name": "",
+              "variables": [],
+              "description": ""
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Ask user which industry or domain's applications they’d like to explore (healthcare, finance, transportation, retail, etc.) . Route to deep dives as appropriate.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": null,
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a58": {
+          "name": "Give industry-specific AI applications",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a71",
+              "name": "User has follow-up application question",
+              "variables": [],
+              "description": "User follows up with more questions about AI in this industry; support up to 3 follow-ups, then recommend new topics."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a72",
+              "name": "User switches topic",
+              "variables": [],
+              "description": "User wants to switch to a different AI topic (e.g., terminology, ethics)."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a73",
+              "name": "User requests further learning",
+              "variables": [],
+              "description": "User asks for course/module suggestions."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a74",
+              "name": "User ends session",
+              "variables": [],
+              "description": "User is satisfied and the session ends."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Provide clear and practical examples of how AI is used in the chosen industry. Use almost lay-friendly language, reference real projects if possible, and offer simple diagrams/illustrations (describe if not available). Cross-link related applications or concepts. Encourage follow-up questions (up to 3). Cite relevant bootcamp modules. Also add a diagram related to the topic.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a59": {
+          "name": "General overview of AI applications",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a75",
+              "name": "User wants deeper dive in one industry",
+              "variables": [],
+              "description": "User picks a domain or asks for more details about a sector."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a76",
+              "name": "User asks about related concept or topic",
+              "variables": [],
+              "description": "User wants to learn something else, e.g. terminology or ethics."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a77",
+              "name": "User wants further learning",
+              "variables": [],
+              "description": "User requests course/module suggestions."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a78",
+              "name": "User ends session",
+              "variables": [],
+              "description": "User is done and no longer has questions."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Provide a summary of major real-world AI applications across multiple industries. Incorporate visual examples or lists where feasible, and cite bootcamp resources. Cross-link to deeper dives and encourage follow-up or topic branching.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a5a": {
+          "name": "Explore AI ethics",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a79",
+              "name": "User asks follow-up ethics question",
+              "variables": [],
+              "description": "User follows up within AI ethics; support up to 3 questions, then suggest new topics or further learning."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a7a",
+              "name": "User asks to link to a related topic",
+              "variables": [],
+              "description": "User wants to jump to another topic (terminology, applications, etc)."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a7b",
+              "name": "User asks for further learning",
+              "variables": [],
+              "description": "User wants course or resource recommendations."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a7c",
+              "name": "User ends session",
+              "variables": [],
+              "description": "User is done and has no further questions."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Explain the basics of AI and machine learning ethics: fairness, explainability, bias, responsibility, transparency, and societal impacts. Provide illustrative diagrams if available. Cross-link to practical examples of ethical issues and relevant course citations. Handle at least 3 follow-up questions, and route as appropriate if the user wants to switch topics or learn more.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a5b": {
+          "name": "Cross-link to related AI concepts",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a7d",
+              "name": "User selects terminology",
+              "variables": [],
+              "description": "User now wants core concepts or terminology."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a7e",
+              "name": "User selects applications",
+              "variables": [],
+              "description": "User wants to learn about real-world applications."
+            },
+            {
+              "id": "68aea8e4f3c7240008229a7f",
+              "name": "User selects ethics",
+              "variables": [],
+              "description": "User wants to learn about AI ethics."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "User wants to switch topics (e.g., from terminology to ethics, or ethics to applications). Prompt user to pick from: core concepts, industry applications, or AI ethics, then route appropriately.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a5c": {
+          "name": "Recommend further learning",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a80",
+              "name": "Ask if the user needs some more tailored information",
+              "variables": [],
+              "description": "User wants to continue learning"
+            },
+            {
+              "id": "68aea8e4f3c7240008229a81",
+              "name": "User thanks or ends session",
+              "variables": [],
+              "description": "User is done and satisfied."
+            }
+          ],
+          "buttonTool": null,
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Recommend specific bootcamp course modules, reputable online courses, or reading materials based on user’s topic of interest. Include direct links/citations to official course materials. Suggest multimedia resources if available. ",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68aea8e4f3c7240008229a5d": {
+          "name": "Session completed – user satisfied",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 500,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68aea8e4f3c7240008229a82",
+              "name": "End of session",
+              "variables": [],
+              "description": "Close the flow after confirming user is satisfied."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Thank the user, confirm they're satisfied, and let them know they can return any time to learn more about AI. Summarize any resources shared if appropriate. End the session.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        },
+        "68b0274e19eba5513734da7d": {
+          "name": "Untitled agent",
+          "settings": {
+            "model": "claude-4-sonnet",
+            "maxTokens": 5000,
+            "temperature": 0.3,
+            "reasoningEffort": null
+          },
+          "cardTool": null,
+          "apiTools": [],
+          "pathTools": [
+            {
+              "id": "68b027e119eba5513734dab6",
+              "name": "Core terminology",
+              "variables": [],
+              "description": "Exit when the questions is related to core terminology."
+            },
+            {
+              "id": "68b02c0319eba5513734dc17",
+              "name": "Real world applications",
+              "variables": [],
+              "description": "Exit when the question is related to real world applications."
+            },
+            {
+              "id": "68b02c2b19eba5513734dc25",
+              "name": "Basic AI ethics",
+              "variables": [],
+              "description": "Exit when the question is related to real world ethics."
+            }
+          ],
+          "buttonTool": {
+            "enabled": true,
+            "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+          },
+          "description": null,
+          "carouselTool": null,
+          "instructions": "Greet the user and state that your name is Algora. Review the initial user question to confirm it concerns AI-related topics, including machine learning, natural language processing, large language models, neural networks, and computer vision. If the question is not clearly within scope, politely clarify or rephrase the question to focus on appropriate AI topics.",
+          "functionTools": [],
+          "webSearchTool": null,
+          "callForwardTool": null,
+          "integrationTools": [],
+          "knowledgeBaseTool": {
+            "enabled": true,
+            "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+          },
+          "mcpIntegrationTools": []
+        }
+      },
+      "prompts": {},
+      "apiTools": {},
+      "messages": {},
+      "integrationTools": {},
+      "mcpIntegrationTools": {}
+    },
+    "prototype": {
+      "type": "chat",
+      "data": {
+        "name": "Algora",
+        "locales": [
+          "en-US"
+        ]
+      },
+      "model": {
+        "intents": [],
+        "slots": []
+      },
+      "context": {
+        "stack": [
+          {
+            "diagramID": "68aea8e4f3c7240008229a83",
+            "storage": {},
+            "variables": {}
+          }
+        ],
+        "variables": {}
+      },
+      "surveyorContext": {
+        "platform": "webchat",
+        "slotsMap": {},
+        "extraSlots": [],
+        "cmsEntities": {},
+        "extraIntents": [],
+        "cmsVariables": {
+          "sessions": {
+            "isSystem": true,
+            "description": "The number of times a particular user has opened the app.",
+            "defaultValue": null
+          },
+          "user_id": {
+            "isSystem": true,
+            "description": "The user's unique ID.",
+            "defaultValue": null
+          },
+          "timestamp": {
+            "isSystem": true,
+            "description": "UNIX timestamp (number of seconds since January 1st, 1970 at UTC).",
+            "defaultValue": null
+          },
+          "platform": {
+            "isSystem": true,
+            "description": "The platform your agent is running on (e.g. \"voiceflow\").",
+            "defaultValue": null
+          },
+          "locale": {
+            "isSystem": true,
+            "description": "The locale of the user (eg. en-US, en-CA, it-IT, fr-FR, ...).",
+            "defaultValue": null
+          },
+          "intent_confidence": {
+            "isSystem": true,
+            "description": "The confidence interval (measured as a value from 0 to 100) for the most recently matched intent.",
+            "defaultValue": null
+          },
+          "last_response": {
+            "isSystem": true,
+            "description": "The agent's last response (text/speak) in a string.",
+            "defaultValue": null
+          },
+          "last_event": {
+            "isSystem": true,
+            "description": "The object containing the last event that the user client has triggered.",
+            "defaultValue": null
+          },
+          "last_utterance": {
+            "isSystem": true,
+            "description": "The user's last utterance in a text string.",
+            "defaultValue": null
+          },
+          "vf_memory": {
+            "isSystem": true,
+            "description": "Last 10 user inputs and agent responses in a string (e.g. \"agent: How can i help?\"\nuser: What's the weather today?).",
+            "defaultValue": null
+          }
+        },
+        "usedIntentsSet": [],
+        "functionDefinitions": {},
+        "referencedAgentsIDs": [
+          "68aea8e4f3c7240008229a52",
+          "68aea8e4f3c7240008229a53",
+          "68aea8e4f3c7240008229a54",
+          "68aea8e4f3c7240008229a55",
+          "68aea8e4f3c7240008229a56",
+          "68aea8e4f3c7240008229a57",
+          "68aea8e4f3c7240008229a58",
+          "68aea8e4f3c7240008229a59",
+          "68aea8e4f3c7240008229a5a",
+          "68aea8e4f3c7240008229a5b",
+          "68aea8e4f3c7240008229a5c",
+          "68aea8e4f3c7240008229a5d",
+          "68b0274e19eba5513734da7d"
+        ],
+        "referencedPromptIDs": [],
+        "referencedAPIToolIDs": [],
+        "referencedResponseIDs": [],
+        "referencedIntegrationToolIDs": [],
+        "referencedMCPIntegrationToolIDs": [],
+        "interfaces": [],
+        "permissions": [],
+        "usedEventsSet": [],
+        "goToIntentsSet": []
+      },
+      "settings": {
+        "brandImage": "https://cm4-production-assets.s3.amazonaws.com/1756384151609-oip.jfif",
+        "avatar": "https://cm4-production-assets.s3.amazonaws.com/1756384160242-oip.jfif",
+        "hasBranding": false
+      },
+      "platform": "webchat"
+    },
+    "settings": {
+      "voice": {
+        "tts": {
+          "provider": "elevenlabs",
+          "model": "eleven_turbo_v2_5",
+          "voice": "ZF6FPAbjXT4488VcRRnw",
+          "settings": {
+            "speed": 1.2
+          }
+        },
+        "failureMessage": "We’re sorry, but the call cannot be completed at this time. Please try again later.",
+        "hasCallRecording": true
+      },
+      "widget": {
+        "type": "chat",
+        "chat": {
+          "voiceInput": true,
+          "voiceOutput": true,
+          "renderMode": "widget",
+          "headerImage": {
+            "enabled": true
+          },
+          "agentImage": {
+            "enabled": false
+          },
+          "banner": {
+            "title": "Your AI agent",
+            "description": "How can I help you today?",
+            "enabled": true
+          },
+          "placeholderText": "Message...",
+          "disclaimer": {
+            "enabled": false,
+            "title": "Privacy notice",
+            "description": "Before we can proceed with your conversation, we kindly ask you to review and accept our privacy policy, outlining how we handle and protect your personal information throughout our services.",
+            "primaryButtonText": "Submit",
+            "secondaryButtonText": "Privacy policy",
+            "secondaryButtonURL": ""
+          },
+          "aiDisclaimer": {
+            "text": "Generated by AI, double-check for accuracy.",
+            "enabled": false
+          },
+          "handoffToAgentImageURL": ""
+        },
+        "voice": {
+          "renderMode": "full",
+          "content": {
+            "talkingText": "Talk to interrupt",
+            "endButtonText": "End",
+            "listeningText": "Listening...",
+            "startButtonText": "Start a call",
+            "callToActionText": "How can I help you?"
+          }
+        },
+        "common": {
+          "sideSpacing": "20",
+          "bottomSpacing": "20",
+          "position": "right",
+          "fontFamily": "UCity Pro",
+          "primaryColor": {
+            "color": "#397DFF",
+            "palette": {
+              "50": "#E7F5FD",
+              "100": "#C6E4FB",
+              "200": "#A2D2FA",
+              "300": "#87BFFB",
+              "400": "#659FFD",
+              "500": "#397DFF",
+              "600": "#2F68DB",
+              "700": "#264EB4",
+              "800": "#1C368E",
+              "900": "#0F1E61"
+            }
+          },
+          "poweredBy": true,
+          "launcher": {
+            "type": "both",
+            "text": "Test your agent"
+          },
+          "footerLink": {
+            "enabled": false
+          },
+          "persistence": "localStorage"
+        },
+        "security": {
+          "approvedDomains": {
+            "enabled": false,
+            "domains": ""
+          },
+          "disableTranscript": false
+        }
+      },
+      "memory": {
+        "turns": 50
+      },
+      "llmFallback": {
+        "models": {
+          "open-ai": {
+            "*": {
+              "provider": "anthropic",
+              "model": "claude-4-sonnet"
+            }
+          },
+          "anthropic": {
+            "*": {
+              "provider": "open-ai",
+              "model": "gpt-4.1-2025-04-14"
+            }
+          },
+          "groq": {
+            "*": {
+              "provider": "anthropic",
+              "model": "claude-4-sonnet"
+            }
+          },
+          "google": {
+            "*": {
+              "provider": "anthropic",
+              "model": "claude-4-sonnet"
+            }
+          }
+        }
+      },
+      "globalNoMatch": {
+        "type": "static",
+        "prompt": [
+          {
+            "text": [
+              "Sorry, I didn’t get that. Please try again."
+            ]
+          }
+        ]
+      },
+      "intentClassification": {
+        "type": "rag",
+        "params": {
+          "model": "claude-3.5-haiku",
+          "temperature": 0.1
+        },
+        "promptWrapper": null
+      }
+    },
+    "topics": [
+      {
+        "type": "DIAGRAM",
+        "sourceID": "64dbb6696a8fab0013dba194"
+      }
+    ],
+    "variables": [
+      "sessions",
+      "user_id",
+      "timestamp",
+      "platform",
+      "locale",
+      "intent_confidence",
+      "last_response",
+      "last_event",
+      "last_utterance",
+      "vf_memory"
+    ],
+    "_id": "68aea8e4d54e34927d61667f",
+    "updatedAt": "2025-10-24T08:01:20.278Z",
+    "publishedAt": "2024-09-27T16:54:27.996Z",
+    "domains": [
+      {
+        "id": "cla06iyr900b206pkh8d4ap8n",
+        "name": "Home",
+        "live": true,
+        "topicIDs": [
+          "64dbb6696a8fab0013dba194"
+        ],
+        "rootDiagramID": "64dbb6696a8fab0013dba194",
+        "updatedBy": 1762161,
+        "updatedAt": "2025-08-27T06:42:44.473Z"
+      }
+    ],
+    "projectID": "68aea8e4d54e34927d61667e",
+    "rootDiagramID": "68aea8e4f3c7240008229a83",
+    "templateDiagramID": "64dbb6696a8fab0013dba195"
+  },
+  "diagrams": {
+    "68aea8e4f3c7240008229a83": {
+      "name": "Chat Bot 2.0",
+      "type": "TOPIC",
+      "zoom": 100,
+      "nodes": {
+        "68aea8bdf3c72400082299fd": {
+          "nodeID": "68aea8bdf3c72400082299fd",
+          "type": "start",
+          "data": {
+            "name": "Start",
+            "color": "#56b365",
+            "triggers": [],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "id": "68aea8bdf3c72400082299fe",
+                  "type": "next",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -1362.9,
+                          -308.66
+                        ]
+                      },
+                      {
+                        "point": [
+                          -1011.7,
+                          -308.66
+                        ]
+                      },
+                      {
+                        "point": [
+                          -1011.7,
+                          -63.39
+                        ]
+                      },
+                      {
+                        "point": [
+                          -660.49,
+                          -63.39
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "68b02717c9caac1b0fdfe31a"
+                }
+              },
+              "dynamic": []
+            },
+            "steps": []
+          },
+          "coords": [
+            -1427.2368421052622,
+            -330.65789473684225
+          ]
+        },
+        "cmetlyipl065u08zld87x7u1c": {
+          "type": "agent",
+          "nodeID": "cmetlyipl065u08zld87x7u1c",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a52",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a63": {
+                  "id": "68aea8e4f3c7240008229a63",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          661.42,
+                          -409.57
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          165.46,
+                          -409.57
+                        ]
+                      },
+                      {
+                        "point": [
+                          165.46,
+                          -63.39
+                        ]
+                      },
+                      {
+                        "point": [
+                          -330.49,
+                          -63.39
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "68b02717c9caac1b0fdfe31a"
+                },
+                "68aea8e4f3c7240008229a64": {
+                  "id": "68aea8e4f3c7240008229a64",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          993.42,
+                          -347.57
+                        ]
+                      },
+                      {
+                        "point": [
+                          1218.68,
+                          -347.57
+                        ]
+                      },
+                      {
+                        "point": [
+                          1218.68,
+                          -380.37
+                        ]
+                      },
+                      {
+                        "point": [
+                          1443.95,
+                          -380.37
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065i08zlcsjt48h2"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "cmetlyipl065v08zlggxiduq8": {
+          "type": "agent",
+          "nodeID": "cmetlyipl065v08zlggxiduq8",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a53",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a65": {
+                  "id": "68aea8e4f3c7240008229a65",
+                  "type": "",
+                  "data": {},
+                  "target": null
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065w08zl60vqa1gu": {
+          "type": "agent",
+          "nodeID": "cmetlyipl065w08zl60vqa1gu",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a54",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a66": {
+                  "id": "68aea8e4f3c7240008229a66",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          336.73,
+                          -632.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          766.86,
+                          -632.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          766.86,
+                          333
+                        ]
+                      },
+                      {
+                        "point": [
+                          1197,
+                          333
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065k08zlgx3g3fls"
+                },
+                "68aea8e4f3c7240008229a67": {
+                  "id": "68aea8e4f3c7240008229a67",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          336.73,
+                          -562.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          845.87,
+                          -562.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          845.87,
+                          1697
+                        ]
+                      },
+                      {
+                        "point": [
+                          1355,
+                          1697
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065q08zlc5e183uz"
+                },
+                "68aea8e4f3c7240008229a68": {
+                  "id": "68aea8e4f3c7240008229a68",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          4.73,
+                          -492.52
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          -312.57,
+                          -492.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          -312.57,
+                          1931.16
+                        ]
+                      },
+                      {
+                        "point": [
+                          -629.88,
+                          1931.16
+                        ],
+                        "reversed": true,
+                        "allowedToTop": false
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipm066408zlbmp420jy"
+                },
+                "68aea8e4f3c7240008229a69": {
+                  "id": "68aea8e4f3c7240008229a69",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          336.73,
+                          -422.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          931.8,
+                          -422.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          931.8,
+                          2501.17
+                        ]
+                      },
+                      {
+                        "point": [
+                          1526.87,
+                          2501.17
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065s08zl0zj70ggx"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "cmetlyipl065x08zl1h023w3z": {
+          "type": "agent",
+          "nodeID": "cmetlyipl065x08zl1h023w3z",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a55",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a6a": {
+                  "id": "68aea8e4f3c7240008229a6a",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1196,
+                          531
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          765.86,
+                          531
+                        ]
+                      },
+                      {
+                        "point": [
+                          765.86,
+                          -1274.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          335.73,
+                          -1274.52
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065j08zl33zv1h2h"
+                },
+                "68aea8e4f3c7240008229a6b": {
+                  "id": "68aea8e4f3c7240008229a6b",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1528,
+                          601
+                        ]
+                      },
+                      {
+                        "point": [
+                          1633.9,
+                          601
+                        ]
+                      },
+                      {
+                        "point": [
+                          1633.9,
+                          -28.2
+                        ]
+                      },
+                      {
+                        "point": [
+                          1739.8,
+                          -28.2
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065l08zlcbtcfd0l"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065y08zlfiy52eui": {
+          "type": "agent",
+          "nodeID": "cmetlyipl065y08zlfiy52eui",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a56",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a6c": {
+                  "id": "68aea8e4f3c7240008229a6c",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1738.8,
+                          150.8
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          704.65,
+                          150.8
+                        ]
+                      },
+                      {
+                        "point": [
+                          704.65,
+                          -11.39
+                        ]
+                      },
+                      {
+                        "point": [
+                          -329.49,
+                          -11.39
+                        ],
+                        "reversed": true,
+                        "allowedToTop": false
+                      }
+                    ]
+                  },
+                  "target": "68aeb6b3d7d09315a41584d8"
+                },
+                "68aea8e4f3c7240008229a6d": {
+                  "id": "68aea8e4f3c7240008229a6d",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1738.8,
+                          220.8
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          553.96,
+                          220.8
+                        ]
+                      },
+                      {
+                        "point": [
+                          553.96,
+                          1879.16
+                        ]
+                      },
+                      {
+                        "point": [
+                          -630.88,
+                          1879.16
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065r08zl78w9ceks"
+                },
+                "68aea8e4f3c7240008229a6e": {
+                  "id": "68aea8e4f3c7240008229a6e",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1738.8,
+                          282.8
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          1691.87,
+                          282.8
+                        ]
+                      },
+                      {
+                        "point": [
+                          1691.87,
+                          2474.17
+                        ],
+                        "toTop": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065s08zl0zj70ggx"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065z08zl3btb5ymd": {
+          "type": "agent",
+          "nodeID": "cmetlyipl065z08zl3btb5ymd",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a57",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a6f": {
+                  "id": "68aea8e4f3c7240008229a6f",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -402.38,
+                          923.94
+                        ]
+                      },
+                      {
+                        "point": [
+                          734.51,
+                          923.94
+                        ]
+                      },
+                      {
+                        "point": [
+                          734.51,
+                          684.6
+                        ]
+                      },
+                      {
+                        "point": [
+                          1871.4,
+                          684.6
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065n08zlb2iq70xg"
+                },
+                "68aea8e4f3c7240008229a70": {
+                  "id": "68aea8e4f3c7240008229a70",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -402.38,
+                          993.94
+                        ]
+                      },
+                      {
+                        "point": [
+                          870.03,
+                          993.94
+                        ]
+                      },
+                      {
+                        "point": [
+                          870.03,
+                          1321.82
+                        ]
+                      },
+                      {
+                        "point": [
+                          2142.44,
+                          1321.82
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065o08zl05whfr8k"
+                },
+                "68b0257419eba5513734d997": {
+                  "id": "68b02574c9caac1b0fdfe317",
+                  "target": null,
+                  "type": ""
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "cmetlyipl066008zl3r1pc2iv": {
+          "type": "agent",
+          "nodeID": "cmetlyipl066008zl3r1pc2iv",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a58",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a71": {
+                  "id": "68aea8e4f3c7240008229a71",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1870.4,
+                          1039.55
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          1846.4,
+                          1039.55
+                        ]
+                      },
+                      {
+                        "point": [
+                          1846.4,
+                          684.6
+                        ]
+                      },
+                      {
+                        "point": [
+                          1871.4,
+                          684.6
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065n08zlb2iq70xg"
+                },
+                "68aea8e4f3c7240008229a72": {
+                  "id": "68aea8e4f3c7240008229a72",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1870.4,
+                          1101.55
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          1777.7,
+                          1101.55
+                        ]
+                      },
+                      {
+                        "point": [
+                          1777.7,
+                          1697
+                        ]
+                      },
+                      {
+                        "point": [
+                          1685,
+                          1697
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065q08zlc5e183uz"
+                },
+                "68aea8e4f3c7240008229a73": {
+                  "id": "68aea8e4f3c7240008229a73",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1870.4,
+                          1163.55
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          619.76,
+                          1163.55
+                        ]
+                      },
+                      {
+                        "point": [
+                          619.76,
+                          1879.16
+                        ]
+                      },
+                      {
+                        "point": [
+                          -630.88,
+                          1879.16
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065r08zl78w9ceks"
+                },
+                "68aea8e4f3c7240008229a74": {
+                  "id": "68aea8e4f3c7240008229a74",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1870.4,
+                          1225.55
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          1691.87,
+                          1225.55
+                        ]
+                      },
+                      {
+                        "point": [
+                          1691.87,
+                          2474.17
+                        ],
+                        "toTop": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065s08zl0zj70ggx"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "cmetlyipl066108zld6hr57be": {
+          "type": "agent",
+          "nodeID": "cmetlyipl066108zld6hr57be",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a59",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a75": {
+                  "id": "68aea8e4f3c7240008229a75",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          2141.44,
+                          1519.82
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          2117.44,
+                          1519.82
+                        ]
+                      },
+                      {
+                        "point": [
+                          2117.44,
+                          1102.21
+                        ]
+                      },
+                      {
+                        "point": [
+                          2225.4,
+                          1102.21
+                        ]
+                      },
+                      {
+                        "point": [
+                          2225.4,
+                          684.6
+                        ]
+                      },
+                      {
+                        "point": [
+                          2201.4,
+                          684.6
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065n08zlb2iq70xg"
+                },
+                "68aea8e4f3c7240008229a76": {
+                  "id": "68aea8e4f3c7240008229a76",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          2141.44,
+                          1589.82
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          1913.22,
+                          1589.82
+                        ]
+                      },
+                      {
+                        "point": [
+                          1913.22,
+                          1697
+                        ]
+                      },
+                      {
+                        "point": [
+                          1685,
+                          1697
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065q08zlc5e183uz"
+                },
+                "68aea8e4f3c7240008229a77": {
+                  "id": "68aea8e4f3c7240008229a77",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          2141.44,
+                          1651.82
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          755.28,
+                          1651.82
+                        ]
+                      },
+                      {
+                        "point": [
+                          755.28,
+                          1879.16
+                        ]
+                      },
+                      {
+                        "point": [
+                          -630.88,
+                          1879.16
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065r08zl78w9ceks"
+                },
+                "68aea8e4f3c7240008229a78": {
+                  "id": "68aea8e4f3c7240008229a78",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          2152.9,
+                          1734.06
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          2010.61,
+                          1734.06
+                        ]
+                      },
+                      {
+                        "point": [
+                          2010.61,
+                          2529.41
+                        ]
+                      },
+                      {
+                        "point": [
+                          1868.33,
+                          2529.41
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065s08zl0zj70ggx"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl066208zl5dqw57pq": {
+          "type": "agent",
+          "nodeID": "cmetlyipl066208zl5dqw57pq",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a5a",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a79": {
+                  "id": "68aea8e4f3c7240008229a79",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          643.96,
+                          2742.62
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          619.96,
+                          2742.62
+                        ]
+                      },
+                      {
+                        "point": [
+                          619.96,
+                          2400.76
+                        ]
+                      },
+                      {
+                        "point": [
+                          644.96,
+                          2400.76
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065p08zlb8qfglf8"
+                },
+                "68aea8e4f3c7240008229a7a": {
+                  "id": "68aea8e4f3c7240008229a7a",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          975.96,
+                          2812.62
+                        ]
+                      },
+                      {
+                        "point": [
+                          1165.48,
+                          2812.62
+                        ]
+                      },
+                      {
+                        "point": [
+                          1165.48,
+                          1697
+                        ]
+                      },
+                      {
+                        "point": [
+                          1355,
+                          1697
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065q08zlc5e183uz"
+                },
+                "68aea8e4f3c7240008229a7b": {
+                  "id": "68aea8e4f3c7240008229a7b",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          643.96,
+                          2882.62
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          6.54,
+                          2882.62
+                        ]
+                      },
+                      {
+                        "point": [
+                          6.54,
+                          1879.16
+                        ]
+                      },
+                      {
+                        "point": [
+                          -630.88,
+                          1879.16
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065r08zl78w9ceks"
+                },
+                "68aea8e4f3c7240008229a7c": {
+                  "id": "68aea8e4f3c7240008229a7c",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          975.96,
+                          2944.62
+                        ]
+                      },
+                      {
+                        "point": [
+                          1251.42,
+                          2944.62
+                        ]
+                      },
+                      {
+                        "point": [
+                          1251.42,
+                          2501.17
+                        ]
+                      },
+                      {
+                        "point": [
+                          1526.87,
+                          2501.17
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065s08zl0zj70ggx"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "cmetlyipm066308zl5uyyckcw": {
+          "type": "agent",
+          "nodeID": "cmetlyipm066308zl5uyyckcw",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a5b",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a7d": {
+                  "id": "68aea8e4f3c7240008229a7d",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1354,
+                          1887
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          844.86,
+                          1887
+                        ]
+                      },
+                      {
+                        "point": [
+                          844.86,
+                          -1274.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          335.73,
+                          -1274.52
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065j08zl33zv1h2h"
+                },
+                "68aea8e4f3c7240008229a7e": {
+                  "id": "68aea8e4f3c7240008229a7e",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1354,
+                          1941
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          475.31,
+                          1941
+                        ]
+                      },
+                      {
+                        "point": [
+                          475.31,
+                          725.94
+                        ]
+                      },
+                      {
+                        "point": [
+                          -403.38,
+                          725.94
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065m08zl1vok64d5"
+                },
+                "68aea8e4f3c7240008229a7f": {
+                  "id": "68aea8e4f3c7240008229a7f",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1354,
+                          1995
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          1164.48,
+                          1995
+                        ]
+                      },
+                      {
+                        "point": [
+                          1164.48,
+                          2400.76
+                        ]
+                      },
+                      {
+                        "point": [
+                          974.96,
+                          2400.76
+                        ],
+                        "reversed": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065p08zlb8qfglf8"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipm066408zlbmp420jy": {
+          "type": "agent",
+          "nodeID": "cmetlyipm066408zlbmp420jy",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a5c",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a80": {
+                  "id": "68aea8e4f3c7240008229a80",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -629.88,
+                          2058.16
+                        ]
+                      },
+                      {
+                        "point": [
+                          -605.88,
+                          2058.16
+                        ]
+                      },
+                      {
+                        "point": [
+                          -605.88,
+                          1023.39
+                        ]
+                      },
+                      {
+                        "point": [
+                          -685.49,
+                          1023.39
+                        ]
+                      },
+                      {
+                        "point": [
+                          -685.49,
+                          -11.39
+                        ]
+                      },
+                      {
+                        "point": [
+                          -661.49,
+                          -11.39
+                        ],
+                        "allowedToTop": false
+                      }
+                    ]
+                  },
+                  "target": "68aeb6b3d7d09315a41584d8"
+                },
+                "68aea8e4f3c7240008229a81": {
+                  "id": "68aea8e4f3c7240008229a81",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -618.42,
+                          2148.4
+                        ]
+                      },
+                      {
+                        "point": [
+                          459.96,
+                          2148.4
+                        ]
+                      },
+                      {
+                        "point": [
+                          459.96,
+                          2529.41
+                        ]
+                      },
+                      {
+                        "point": [
+                          1538.33,
+                          2529.41
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  },
+                  "target": "cmetlyipl065s08zl0zj70ggx"
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "cmetlyipm066508zl2kh68jpt": {
+          "type": "agent",
+          "nodeID": "cmetlyipm066508zl2kh68jpt",
+          "data": {
+            "agentID": "68aea8e4f3c7240008229a5d",
+            "listenForOtherTriggers": false,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68aea8e4f3c7240008229a82": {
+                  "id": "68aea8e4f3c7240008229a82",
+                  "type": "",
+                  "data": {},
+                  "target": null
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065h08zl49zd3z7k": {
+          "type": "block",
+          "coords": [
+            827.4219771241832,
+            -607.5694444444448
+          ],
+          "nodeID": "cmetlyipl065h08zl49zd3z7k",
+          "data": {
+            "name": "Clarify user intent",
+            "color": "#5b9fd7",
+            "steps": [
+              "cmetlyipl065u08zld87x7u1c"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            },
+            "triggers": []
+          }
+        },
+        "cmetlyipl065i08zlcsjt48h2": {
+          "type": "block",
+          "coords": [
+            1608.947368421051,
+            -407.3684210526317
+          ],
+          "nodeID": "cmetlyipl065i08zlcsjt48h2",
+          "data": {
+            "name": "Unable to assist or clarify",
+            "color": "#CB627B",
+            "steps": [
+              "cmetlyipl065v08zlggxiduq8"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065j08zl33zv1h2h": {
+          "type": "block",
+          "coords": [
+            170.72948615231903,
+            -1301.5231976043995
+          ],
+          "nodeID": "cmetlyipl065j08zl33zv1h2h",
+          "data": {
+            "name": "Explain AI core terminology",
+            "color": "#5b9fd7",
+            "steps": [
+              "68aef680d7d09315a41584e0",
+              "cmetlyipl065w08zl60vqa1gu"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            },
+            "triggers": []
+          }
+        },
+        "cmetlyipl065k08zlgx3g3fls": {
+          "type": "block",
+          "coords": [
+            1362.0000000000002,
+            306.0000000000003
+          ],
+          "nodeID": "cmetlyipl065k08zlgx3g3fls",
+          "data": {
+            "name": "Handle follow-up on terminology",
+            "color": "#A1ADBA",
+            "steps": [
+              "cmetlyipl065x08zl1h023w3z"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065l08zlcbtcfd0l": {
+          "type": "block",
+          "coords": [
+            1904.8000000000015,
+            -55.19999999999999
+          ],
+          "nodeID": "cmetlyipl065l08zlcbtcfd0l",
+          "data": {
+            "name": "Suggest new topics or wrap-up",
+            "color": "#A1ADBA",
+            "steps": [
+              "cmetlyipl065y08zlfiy52eui"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065m08zl1vok64d5": {
+          "type": "block",
+          "coords": [
+            -568.3827990884985,
+            698.9429881327694
+          ],
+          "nodeID": "cmetlyipl065m08zl1vok64d5",
+          "data": {
+            "name": "Explore real-world AI applications",
+            "color": "#A1ADBA",
+            "steps": [
+              "cmetlyipl065z08zl3btb5ymd"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            },
+            "triggers": []
+          }
+        },
+        "cmetlyipl065n08zlb2iq70xg": {
+          "type": "block",
+          "coords": [
+            2036.4000000000033,
+            657.6
+          ],
+          "nodeID": "cmetlyipl065n08zlb2iq70xg",
+          "data": {
+            "name": "Give industry-specific AI applications",
+            "color": "#5b9fd7",
+            "steps": [
+              "68aef6f4d7d09315a41584e8",
+              "cmetlyipl066008zl3r1pc2iv"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            },
+            "triggers": []
+          }
+        },
+        "cmetlyipl065o08zl05whfr8k": {
+          "type": "block",
+          "coords": [
+            2307.4390243902462,
+            1294.8170731707332
+          ],
+          "nodeID": "cmetlyipl065o08zl05whfr8k",
+          "data": {
+            "name": "General overview of AI applications",
+            "color": "#5b9fd7",
+            "steps": [
+              "cmetlyipl066108zld6hr57be"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            },
+            "triggers": []
+          }
+        },
+        "cmetlyipl065p08zlb8qfglf8": {
+          "type": "block",
+          "coords": [
+            809.9648324795374,
+            2373.7587587587605
+          ],
+          "nodeID": "cmetlyipl065p08zlb8qfglf8",
+          "data": {
+            "name": "Explore AI ethics",
+            "color": "#5b9fd7",
+            "steps": [
+              "68aef843d7d09315a41584ec",
+              "cmetlyipl066208zl5dqw57pq"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065q08zlc5e183uz": {
+          "type": "block",
+          "coords": [
+            1520,
+            1670
+          ],
+          "nodeID": "cmetlyipl065q08zlc5e183uz",
+          "data": {
+            "name": "Cross-link to related AI concepts",
+            "color": "#A1ADBA",
+            "steps": [
+              "cmetlyipm066308zl5uyyckcw"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065r08zl78w9ceks": {
+          "type": "block",
+          "coords": [
+            -795.8783783783787,
+            1852.1621621621694
+          ],
+          "nodeID": "cmetlyipl065r08zl78w9ceks",
+          "data": {
+            "name": "Recommend further learning",
+            "color": "#5b9fd7",
+            "steps": [
+              "cmetlyipm066408zlbmp420jy"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "cmetlyipl065s08zl0zj70ggx": {
+          "type": "block",
+          "coords": [
+            1691.8654684095857,
+            2474.1666666666665
+          ],
+          "nodeID": "cmetlyipl065s08zl0zj70ggx",
+          "data": {
+            "name": "Session completed – user satisfied",
+            "color": "#56b365",
+            "steps": [
+              "cmetlyipm066508zl2kh68jpt"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          }
+        },
+        "68aeb6b3d7d09315a41584d8": {
+          "type": "visual",
+          "data": {
+            "name": "Visuals",
+            "image": "https://cm4-production-assets.s3.amazonaws.com/1756280505976-image-01.jfif",
+            "visualType": "image",
+            "canvasVisibility": "full",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "68aeb6b3d7d09315a41584d9"
+                }
+              },
+              "dynamic": []
+            },
+            "dimensions": {
+              "width": 306,
+              "height": 177
+            },
+            "frameType": "AUTO"
+          },
+          "nodeID": "68aeb6b3d7d09315a41584d8",
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "68aef680d7d09315a41584e0": {
+          "type": "visual",
+          "data": {
+            "name": "Visuals",
+            "image": "https://cm4-production-assets.s3.amazonaws.com/1756296839658-chatgpt-image-aug-27-2025-09_49_33-am.png",
+            "visualType": "image",
+            "canvasVisibility": "full",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "68aef680d7d09315a41584e1",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          709.79,
+                          1371.84
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          670,
+                          1371.84
+                        ]
+                      },
+                      {
+                        "point": [
+                          670,
+                          409
+                        ]
+                      },
+                      {
+                        "point": [
+                          694,
+                          409
+                        ],
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            },
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "frameType": "AUTO"
+          },
+          "nodeID": "68aef680d7d09315a41584e0"
+        },
+        "68aef6f4d7d09315a41584e8": {
+          "type": "visual",
+          "data": {
+            "name": "Visuals",
+            "image": "https://cm4-production-assets.s3.amazonaws.com/1756297130807-image-05.jpg",
+            "visualType": "image",
+            "canvasVisibility": "full",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "68aef6f4d7d09315a41584e9"
+                }
+              },
+              "dynamic": []
+            },
+            "dimensions": {
+              "width": 337,
+              "height": 164
+            },
+            "frameType": "AUTO"
+          },
+          "nodeID": "68aef6f4d7d09315a41584e8"
+        },
+        "68aef843d7d09315a41584ec": {
+          "type": "visual",
+          "data": {
+            "name": "Visuals",
+            "image": "https://cm4-production-assets.s3.amazonaws.com/1756297287300-image-07.jpg",
+            "visualType": "image",
+            "canvasVisibility": "full",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "68aef843d7d09315a41584ed"
+                }
+              },
+              "dynamic": []
+            },
+            "dimensions": {
+              "width": 324,
+              "height": 164
+            },
+            "frameType": "AUTO"
+          },
+          "nodeID": "68aef843d7d09315a41584ec"
+        },
+        "68b02717c9caac1b0fdfe319": {
+          "type": "agent",
+          "data": {
+            "name": "Untitled agent",
+            "agentID": "68b0274e19eba5513734da7d",
+            "listenForOtherTriggers": true,
+            "exitEveryConversationalTurn": false,
+            "portsV2": {
+              "byKey": {
+                "68b027e119eba5513734dab6": {
+                  "id": "68b027e0c9caac1b0fdfe328",
+                  "target": "68aef680d7d09315a41584e0",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -329.49,
+                          292.28
+                        ]
+                      },
+                      {
+                        "point": [
+                          -162.38,
+                          292.28
+                        ]
+                      },
+                      {
+                        "point": [
+                          -162.38,
+                          -1222.52
+                        ]
+                      },
+                      {
+                        "point": [
+                          4.73,
+                          -1222.52
+                        ],
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                },
+                "68b02c0319eba5513734dc17": {
+                  "id": "68b02c03c9caac1b0fdfe353",
+                  "target": "cmetlyipl065n08zlb2iq70xg",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -329.49,
+                          346.28
+                        ]
+                      },
+                      {
+                        "point": [
+                          770.95,
+                          346.28
+                        ]
+                      },
+                      {
+                        "point": [
+                          770.95,
+                          684.6
+                        ]
+                      },
+                      {
+                        "point": [
+                          1871.4,
+                          684.6
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  }
+                },
+                "68b02c2b19eba5513734dc25": {
+                  "id": "68b02c2ac9caac1b0fdfe355",
+                  "target": "cmetlyipl066208zl5dqw57pq",
+                  "type": "",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -329.49,
+                          400.28
+                        ]
+                      },
+                      {
+                        "point": [
+                          157.23,
+                          400.28
+                        ]
+                      },
+                      {
+                        "point": [
+                          157.23,
+                          2615.62
+                        ]
+                      },
+                      {
+                        "point": [
+                          643.96,
+                          2615.62
+                        ],
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                }
+              },
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "nodeID": "68b02717c9caac1b0fdfe319",
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "68b02717c9caac1b0fdfe31a": {
+          "type": "block",
+          "data": {
+            "name": "New Block 14",
+            "steps": [
+              "68aeb6b3d7d09315a41584d8",
+              "68b02717c9caac1b0fdfe319"
+            ]
+          },
+          "nodeID": "68b02717c9caac1b0fdfe31a",
+          "coords": [
+            -495.49408915674843,
+            -90.3883069028943
+          ]
+        }
+      },
+      "offsetX": 1701.78947368421,
+      "offsetY": 564.5263157894738,
+      "modified": 1756276925,
+      "variables": [],
+      "creatorID": 1762161,
+      "_id": "68aea8e4d54e34927d616681",
+      "diagramID": "68aea8e4f3c7240008229a83",
+      "versionID": "68aea8e4d54e34927d61667f"
+    }
+  },
+  "flows": [],
+  "entities": [],
+  "entityVariants": [],
+  "intents": [
+    {
+      "id": "None",
+      "name": "None",
+      "createdByID": 1762161,
+      "folderID": null,
+      "description": null,
+      "automaticReprompt": false,
+      "entityOrder": [],
+      "automaticRepromptSettings": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    }
+  ],
+  "utterances": [],
+  "requiredEntities": [],
+  "folders": [],
+  "responses": [
+    {
+      "id": "68aeab959be55dc1a66eb1aa",
+      "name": "",
+      "createdByID": 1762161,
+      "folderID": null,
+      "type": "message",
+      "draft": false,
+      "createdAt": "2025-08-27T06:54:13.000Z",
+      "updatedAt": "2025-08-27T06:54:48.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68b00a5909a75668c7855ed5",
+      "name": "",
+      "createdByID": 1762161,
+      "folderID": null,
+      "type": "message",
+      "draft": false,
+      "createdAt": "2025-08-28T07:50:50.000Z",
+      "updatedAt": "2025-08-28T07:51:33.000Z",
+      "updatedByID": 1762161
+    }
+  ],
+  "responseMessages": [
+    {
+      "id": "68aeab959be55dc1a66eb1ac",
+      "discriminatorID": "68aeab959be55dc1a66eb1ab",
+      "text": [
+        {
+          "text": [
+            "Hi, my name is Algora! Welcome to our chatbot and how can we help you?"
+          ]
+        }
+      ],
+      "condition": null,
+      "delay": null,
+      "createdAt": "2025-08-27T06:54:13.000Z"
+    },
+    {
+      "id": "68b00a5909a75668c7855ed7",
+      "discriminatorID": "68b00a5909a75668c7855ed6",
+      "text": [
+        {
+          "text": [
+            "Hi! My name is Algora.What do you want to know about AI?"
+          ]
+        },
+        {
+          "text": [
+            {
+              "text": [
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "condition": null,
+      "delay": null,
+      "createdAt": "2025-08-28T07:50:50.000Z"
+    }
+  ],
+  "responseDiscriminators": [
+    {
+      "id": "68aeab959be55dc1a66eb1ab",
+      "channel": "default",
+      "language": "en-us",
+      "responseID": "68aeab959be55dc1a66eb1aa",
+      "variantOrder": [
+        "68aeab959be55dc1a66eb1ac"
+      ],
+      "createdAt": "2025-08-27T06:54:13.000Z"
+    },
+    {
+      "id": "68b00a5909a75668c7855ed6",
+      "channel": "default",
+      "language": "en-us",
+      "responseID": "68b00a5909a75668c7855ed5",
+      "variantOrder": [
+        "68b00a5909a75668c7855ed7"
+      ],
+      "createdAt": "2025-08-28T07:50:50.000Z"
+    }
+  ],
+  "variables": [
+    {
+      "id": "sessions",
+      "name": "sessions",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "number",
+      "description": "The number of times a particular user has opened the app.",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "user_id",
+      "name": "user_id",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The user's unique ID.",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "timestamp",
+      "name": "timestamp",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "UNIX timestamp (number of seconds since January 1st, 1970 at UTC).",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "platform",
+      "name": "platform",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The platform your agent is running on (e.g. \"voiceflow\").",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "locale",
+      "name": "locale",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The locale of the user (eg. en-US, en-CA, it-IT, fr-FR, ...).",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "intent_confidence",
+      "name": "intent_confidence",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "number",
+      "description": "The confidence interval (measured as a value from 0 to 100) for the most recently matched intent.",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "last_response",
+      "name": "last_response",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The agent's last response (text/speak) in a string.",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "last_event",
+      "name": "last_event",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "any",
+      "description": "The object containing the last event that the user client has triggered.",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "last_utterance",
+      "name": "last_utterance",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "The user's last utterance in a text string.",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "vf_memory",
+      "name": "vf_memory",
+      "createdByID": 1762161,
+      "folderID": null,
+      "color": "#515A63",
+      "isArray": false,
+      "isSystem": true,
+      "datatype": "text",
+      "description": "Last 10 user inputs and agent responses in a string (e.g. \"agent: How can i help?\"\nuser: What's the weather today?).",
+      "defaultValue": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T06:42:44.000Z",
+      "updatedByID": 1762161
+    }
+  ],
+  "workflows": [
+    {
+      "id": "66df755be937eb000784abb2",
+      "name": "Start workflow",
+      "createdByID": 1762161,
+      "folderID": null,
+      "status": null,
+      "isStart": true,
+      "diagramID": "68aea8e4f3c7240008229a83",
+      "assigneeID": null,
+      "description": "",
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-29T10:53:14.000Z",
+      "updatedByID": 1762161
+    }
+  ],
+  "attachments": [],
+  "cardButtons": [],
+  "prompts": [],
+  "promptMessages": [],
+  "events": [],
+  "agents": [
+    {
+      "id": "68aea8e4f3c7240008229a51",
+      "name": "Determine user intent",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Greet the user and state that your name is Algora and ask what they would like to know about Artificial Intelligence "
+          ]
+        },
+        {
+          "text": [
+            {
+              "text": [
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a5e",
+        "68aea8e4f3c7240008229a5f",
+        "68aea8e4f3c7240008229a60",
+        "68aea8e4f3c7240008229a61",
+        "68aea8e4f3c7240008229a62"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": false,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-28T07:47:32.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a52",
+      "name": "Clarify user intent",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Politely ask the user to specify if they want to learn terminology, see real-world applications, discover AI ethics basics, or get learning resources. Help them pick one, then return to routing."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a63",
+        "68aea8e4f3c7240008229a64"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:15:48.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a53",
+      "name": "Unable to assist or clarify",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Let the user know you could not understand their request or assist further at this time. Encourage them to try again later. "
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a65"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:21:17.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a54",
+      "name": "Explain AI core terminology",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Answer the user with detailed, jargon-free explanations of core AI concepts such as: Machine Learning, NLP, Large Language Models, Neural Networks, Computer Vision, and explain distinctions between AI, ML, and Deep Learning. Present relevant diagrams or simple visualizations as available (e.g., a chart contrasting AI, ML, Deep Learning). Provide citations to specific bootcamp course materials for further reading. Encourage follow-up questions or exploration of related concepts."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a66",
+        "68aea8e4f3c7240008229a67",
+        "68aea8e4f3c7240008229a68",
+        "68aea8e4f3c7240008229a69"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:44:19.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a55",
+      "name": "Handle follow-up on terminology",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "The user asked a follow-up question related to AI fundamentals or core terminology. Determine which concept to explain further, ensure to support up to 3 follow-ups per user session on this topic. Provide expanded answers, link to diagrams, and cite bootcamp resources. If follow-up limit reached, gently encourage new topic or offer further learning."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a6a",
+        "68aea8e4f3c7240008229a6b"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:21:07.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a56",
+      "name": "Suggest new topics or wrap-up",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Inform user the session follow-up limit for this topic has been reached. Offer to explore other AI domains (applications, ethics) or suggest further learning resources. Route as user decides."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a6c",
+        "68aea8e4f3c7240008229a6d",
+        "68aea8e4f3c7240008229a6e"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:21:23.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a57",
+      "name": "Explore real-world AI applications",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Ask user which industry or domain's applications they’d like to explore (healthcare, finance, transportation, retail, etc.) . Route to deep dives as appropriate."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a6f",
+        "68aea8e4f3c7240008229a70",
+        "68b0257419eba5513734d997"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": null,
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-28T09:46:29.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a58",
+      "name": "Give industry-specific AI applications",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Provide clear and practical examples of how AI is used in the chosen industry. Use almost lay-friendly language, reference real projects if possible, and offer simple diagrams/illustrations (describe if not available). Cross-link related applications or concepts. Encourage follow-up questions (up to 3). Cite relevant bootcamp modules. Also add a diagram related to the topic."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a71",
+        "68aea8e4f3c7240008229a72",
+        "68aea8e4f3c7240008229a73",
+        "68aea8e4f3c7240008229a74"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:21:01.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a59",
+      "name": "General overview of AI applications",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Provide a summary of major real-world AI applications across multiple industries. Incorporate visual examples or lists where feasible, and cite bootcamp resources. Cross-link to deeper dives and encourage follow-up or topic branching."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a75",
+        "68aea8e4f3c7240008229a76",
+        "68aea8e4f3c7240008229a77",
+        "68aea8e4f3c7240008229a78"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:20:54.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a5a",
+      "name": "Explore AI ethics",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Explain the basics of AI and machine learning ethics: fairness, explainability, bias, responsibility, transparency, and societal impacts. Provide illustrative diagrams if available. Cross-link to practical examples of ethical issues and relevant course citations. Handle at least 3 follow-up questions, and route as appropriate if the user wants to switch topics or learn more."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a79",
+        "68aea8e4f3c7240008229a7a",
+        "68aea8e4f3c7240008229a7b",
+        "68aea8e4f3c7240008229a7c"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:20:34.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a5b",
+      "name": "Cross-link to related AI concepts",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "User wants to switch topics (e.g., from terminology to ethics, or ethics to applications). Prompt user to pick from: core concepts, industry applications, or AI ethics, then route appropriately."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a7d",
+        "68aea8e4f3c7240008229a7e",
+        "68aea8e4f3c7240008229a7f"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:20:49.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a5c",
+      "name": "Recommend further learning",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Recommend specific bootcamp course modules, reputable online courses, or reading materials based on user’s topic of interest. Include direct links/citations to official course materials. Suggest multimedia resources if available. "
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a80",
+        "68aea8e4f3c7240008229a81"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": null,
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-28T08:18:59.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68aea8e4f3c7240008229a5d",
+      "name": "Session completed – user satisfied",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {
+        "model": "claude-4-sonnet",
+        "maxTokens": 500,
+        "temperature": 0.3
+      },
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Thank the user, confirm they're satisfied, and let them know they can return any time to learn more about AI. Summarize any resources shared if appropriate. End the session."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68aea8e4f3c7240008229a82"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-27T06:42:44.000Z",
+      "updatedAt": "2025-08-27T13:20:41.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68b0274e19eba5513734da7d",
+      "name": "Untitled agent",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {},
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Greet the user and state that your name is Algora. Review the initial user question to confirm it concerns AI-related topics, including machine learning, natural language processing, large language models, neural networks, and computer vision. If the question is not clearly within scope, politely clarify or rephrase the question to focus on appropriate AI topics."
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68b027e119eba5513734dab6",
+        "68b02c0319eba5513734dc17",
+        "68b02c2b19eba5513734dc25"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-28T09:54:23.000Z",
+      "updatedAt": "2025-08-28T12:25:42.000Z",
+      "updatedByID": 1762161
+    },
+    {
+      "id": "68b049dc19eba5513734ea73",
+      "name": "Untitled agent",
+      "createdByID": 1762161,
+      "folderID": null,
+      "settings": {},
+      "description": null,
+      "instructions": [
+        {
+          "text": [
+            "Politely tell the user you can not assist with questions that does not relate to Artificial Inteligence "
+          ]
+        }
+      ],
+      "pathToolOrder": [
+        "68b04a1219eba5513734ea9b"
+      ],
+      "webSearchTool": null,
+      "knowledgeBaseTool": {
+        "enabled": true,
+        "description": "Searches an external knowledge base to retrieve relevant information, supplementing or replacing the language model's internal context."
+      },
+      "buttonTool": {
+        "enabled": true,
+        "description": "Displays a UI picker when the user needs to select one option from a predefined list (up to 5 options)."
+      },
+      "cardTool": null,
+      "carouselTool": null,
+      "callForwardTool": null,
+      "createdAt": "2025-08-28T12:21:48.000Z",
+      "updatedAt": "2025-08-28T12:22:45.000Z",
+      "updatedByID": 1762161
+    }
+  ],
+  "agentAPITools": [],
+  "agentPathTools": [
+    {
+      "id": "68aea8e4f3c7240008229a5e",
+      "name": "User wants to learn AI terminology",
+      "agentID": "68aea8e4f3c7240008229a51",
+      "description": "User expresses interest in core AI terminology or distinctions between AI, ML, and Deep Learning.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a5f",
+      "name": "User wants applications of AI",
+      "agentID": "68aea8e4f3c7240008229a51",
+      "description": "User wants to know about real-world uses of AI.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a60",
+      "name": "User wants to learn about AI ethics",
+      "agentID": "68aea8e4f3c7240008229a51",
+      "description": "User asks about ethics, responsible AI, or bias.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a61",
+      "name": "User wants suggested course modules or further learning",
+      "agentID": "68aea8e4f3c7240008229a51",
+      "description": "User asks for learning resources or recommended modules.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a62",
+      "name": "User input is unclear",
+      "agentID": "68aea8e4f3c7240008229a51",
+      "description": "User’s request does not clearly map to any category.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a63",
+      "name": "User clarifies intent",
+      "agentID": "68aea8e4f3c7240008229a52",
+      "description": "User provides a clear answer about their intent.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a64",
+      "name": "User abandons or still unclear",
+      "agentID": "68aea8e4f3c7240008229a52",
+      "description": "User does not clarify or isn’t sure after several attempts.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a65",
+      "name": "End of flow",
+      "agentID": "68aea8e4f3c7240008229a53",
+      "description": "Flow ends after apology and suggestion to retry later.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a66",
+      "name": "User has follow-up question about terminology",
+      "agentID": "68aea8e4f3c7240008229a54",
+      "description": "User asks a deeper or new question about terminology or a related concept.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a67",
+      "name": "User wants to cross-link to related AI topic",
+      "agentID": "68aea8e4f3c7240008229a54",
+      "description": "User asks to branch to another AI topic (applications, ethics, etc).",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a68",
+      "name": "User asks for further learning",
+      "agentID": "68aea8e4f3c7240008229a54",
+      "description": "User requests info on course modules or more resources.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a69",
+      "name": "User is satisfied and conversation ends",
+      "agentID": "68aea8e4f3c7240008229a54",
+      "description": "User signals they are done or thanks the bot.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a6a",
+      "name": "More follow-up (less than 3 reached)",
+      "agentID": "68aea8e4f3c7240008229a55",
+      "description": "User has not yet reached the follow-up limit, wants more explanation.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a6b",
+      "name": "Three follow-ups about terminology completed",
+      "agentID": "68aea8e4f3c7240008229a55",
+      "description": "Three follow-up questions on core terminology reached.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a6c",
+      "name": "User wants to explore new topic",
+      "agentID": "68aea8e4f3c7240008229a56",
+      "description": "User wishes to switch to another major AI topic (application, ethics, etc).",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a6d",
+      "name": "User asks for further learning recommendations",
+      "agentID": "68aea8e4f3c7240008229a56",
+      "description": "User decides to get course modules or resource recommendations.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a6e",
+      "name": "User completes session",
+      "agentID": "68aea8e4f3c7240008229a56",
+      "description": "User is satisfied and wants to end conversation.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a6f",
+      "name": "User picks a specific industry",
+      "agentID": "68aea8e4f3c7240008229a57",
+      "description": "User picks or names an industry/domain to explore.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a70",
+      "name": "User wants a general overview",
+      "agentID": "68aea8e4f3c7240008229a57",
+      "description": "User wants a broad summary of AI applications in various sectors.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a71",
+      "name": "User has follow-up application question",
+      "agentID": "68aea8e4f3c7240008229a58",
+      "description": "User follows up with more questions about AI in this industry; support up to 3 follow-ups, then recommend new topics.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a72",
+      "name": "User switches topic",
+      "agentID": "68aea8e4f3c7240008229a58",
+      "description": "User wants to switch to a different AI topic (e.g., terminology, ethics).",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a73",
+      "name": "User requests further learning",
+      "agentID": "68aea8e4f3c7240008229a58",
+      "description": "User asks for course/module suggestions.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a74",
+      "name": "User ends session",
+      "agentID": "68aea8e4f3c7240008229a58",
+      "description": "User is satisfied and the session ends.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a75",
+      "name": "User wants deeper dive in one industry",
+      "agentID": "68aea8e4f3c7240008229a59",
+      "description": "User picks a domain or asks for more details about a sector.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a76",
+      "name": "User asks about related concept or topic",
+      "agentID": "68aea8e4f3c7240008229a59",
+      "description": "User wants to learn something else, e.g. terminology or ethics.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a77",
+      "name": "User wants further learning",
+      "agentID": "68aea8e4f3c7240008229a59",
+      "description": "User requests course/module suggestions.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a78",
+      "name": "User ends session",
+      "agentID": "68aea8e4f3c7240008229a59",
+      "description": "User is done and no longer has questions.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a79",
+      "name": "User asks follow-up ethics question",
+      "agentID": "68aea8e4f3c7240008229a5a",
+      "description": "User follows up within AI ethics; support up to 3 questions, then suggest new topics or further learning.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a7a",
+      "name": "User asks to link to a related topic",
+      "agentID": "68aea8e4f3c7240008229a5a",
+      "description": "User wants to jump to another topic (terminology, applications, etc).",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a7b",
+      "name": "User asks for further learning",
+      "agentID": "68aea8e4f3c7240008229a5a",
+      "description": "User wants course or resource recommendations.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a7c",
+      "name": "User ends session",
+      "agentID": "68aea8e4f3c7240008229a5a",
+      "description": "User is done and has no further questions.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a7d",
+      "name": "User selects terminology",
+      "agentID": "68aea8e4f3c7240008229a5b",
+      "description": "User now wants core concepts or terminology.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a7e",
+      "name": "User selects applications",
+      "agentID": "68aea8e4f3c7240008229a5b",
+      "description": "User wants to learn about real-world applications.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a7f",
+      "name": "User selects ethics",
+      "agentID": "68aea8e4f3c7240008229a5b",
+      "description": "User wants to learn about AI ethics.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a80",
+      "name": "Ask if the user needs some more tailored information",
+      "agentID": "68aea8e4f3c7240008229a5c",
+      "description": "User wants to continue learning",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a81",
+      "name": "User thanks or ends session",
+      "agentID": "68aea8e4f3c7240008229a5c",
+      "description": "User is done and satisfied.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68aea8e4f3c7240008229a82",
+      "name": "End of session",
+      "agentID": "68aea8e4f3c7240008229a5d",
+      "description": "Close the flow after confirming user is satisfied.",
+      "variableOrder": [],
+      "createdAt": "2025-08-27T06:42:44.000Z"
+    },
+    {
+      "id": "68b0257419eba5513734d997",
+      "name": "",
+      "agentID": "68aea8e4f3c7240008229a57",
+      "description": "",
+      "variableOrder": [],
+      "createdAt": "2025-08-28T09:46:29.000Z"
+    },
+    {
+      "id": "68b027e119eba5513734dab6",
+      "name": "Core terminology",
+      "agentID": "68b0274e19eba5513734da7d",
+      "description": "Exit when the questions is related to core terminology.",
+      "variableOrder": [],
+      "createdAt": "2025-08-28T09:56:49.000Z"
+    },
+    {
+      "id": "68b02c0319eba5513734dc17",
+      "name": "Real world applications",
+      "agentID": "68b0274e19eba5513734da7d",
+      "description": "Exit when the question is related to real world applications.",
+      "variableOrder": [],
+      "createdAt": "2025-08-28T10:14:27.000Z"
+    },
+    {
+      "id": "68b02c2b19eba5513734dc25",
+      "name": "Basic AI ethics",
+      "agentID": "68b0274e19eba5513734da7d",
+      "description": "Exit when the question is related to real world ethics.",
+      "variableOrder": [],
+      "createdAt": "2025-08-28T10:15:07.000Z"
+    },
+    {
+      "id": "68b04a1219eba5513734ea9b",
+      "name": "",
+      "agentID": "68b049dc19eba5513734ea73",
+      "description": "",
+      "variableOrder": [],
+      "createdAt": "2025-08-28T12:22:43.000Z"
+    }
+  ],
+  "agentFunctionTools": [],
+  "agentIntegrationTools": [],
+  "agentPathToolVariables": [],
+  "agentMcpIntegrationTools": [],
+  "apiTools": [],
+  "apiToolInputVariables": [],
+  "integrationTools": [],
+  "functions": [],
+  "functionPaths": [],
+  "functionVariables": [],
+  "mcpServers": [],
+  "mcpServerTools": [],
+  "mcpIntegrationTools": [],
+  "project": {
+    "type": "chat",
+    "name": "Algora",
+    "image": "",
+    "teamID": "peEqYzN6ED",
+    "members": [],
+    "privacy": "private",
+    "platform": "webchat",
+    "_version": 1.2,
+    "linkType": "STRAIGHT",
+    "creatorID": 1762161,
+    "updatedBy": 1762161,
+    "apiPrivacy": "public",
+    "platformData": {
+      "invocationName": "template project general"
+    },
+    "customThemes": [],
+    "aiAssistSettings": {
+      "aiPlayground": true
+    },
+    "_id": "68aea8e4d54e34927d61667e",
+    "updatedAt": "2025-08-29T10:15:28.584Z",
+    "devVersion": "68aea8e4d54e34927d61667f",
+    "liveVersion": "68aea8e4d54e34927d616680"
+  },
+  "_version": "1.2",
+  "secrets": [],
+  "variableStates": [],
+  "transcriptEvaluations": [
+    {
+      "name": "Satisfaction score",
+      "default": true,
+      "description": null,
+      "type": "number",
+      "enabled": false,
+      "prompt": "Rate the user's overall satisfaction based on the conversation, using a scale from 1 to 5.",
+      "settings": null,
+      "minimumValue": 1,
+      "minimumPrompt": "Look for negative comments or expressions of dissatisfaction to rate the minimum satisfaction.",
+      "maximumValue": 5,
+      "maximumPrompt": "Identify any comments or phrases in the transcript that express the highest level of satisfaction."
+    },
+    {
+      "name": "Deflection rate",
+      "default": true,
+      "description": null,
+      "type": "boolean",
+      "enabled": false,
+      "prompt": "Determine if the user requested to talk to a human in order to achieve their desired outcome.",
+      "settings": null,
+      "truePrompt": "The user did not require the need to talk to a human.",
+      "falsePrompt": "The user required the need to talk to a human agent."
+    },
+    {
+      "name": "AI summary",
+      "default": true,
+      "description": null,
+      "type": "string",
+      "enabled": false,
+      "prompt": "Look at the transcript and provide a brief summary of the conversation. Make sure to highlight the outcome of the conversation, and key moments or topics, and the overall tone of the customer.",
+      "settings": null
+    }
+  ]
+}
